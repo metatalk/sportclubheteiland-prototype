@@ -1,0 +1,142 @@
+// bower:scss
+// endbower
+
+
+$bpSmall : 768px;
+$bpMedium : 1024px;
+$bpBig : 1280px;
+$bpVeryBig : 1920px;
+
+body {
+  background: #FFF;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #333;
+  padding: 0;
+  margin: 0;
+  @media (min-width: $bpBig) {
+    font-size: 160%;
+  }
+  @media (min-width: $bpVeryBig) {
+    font-size: 210%;
+  }
+}
+
+
+/*
+ *  GEBRUIK BREAKPOINTS IN JS
+ */
+
+body:before {
+  content: "bpSmall";
+  display: none; /* Prevent from displaying. */
+}
+@media (min-width: $bpMedium) {
+  body:before {
+    content: "bpMedium";
+  }
+}
+@media (min-width: $bpBig) {
+  body:before {
+    content: "bpBig";
+  }
+}
+
+a {
+  color: #000;
+  .sport__block--black & { color: #FFF; }
+}
+
+.sport {
+  //max-width: 1440px;
+  margin: 0 auto;
+}
+
+.sport__header {
+  height: 90vh;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+  .sport__intro {
+
+  }
+
+
+/*
+ *  KOLOMMEN
+ */
+
+ .sport__row {
+   @media(min-width: $bpMedium) {
+     display: flex;
+     width: 100%;
+   }
+ }
+
+  [class*=sport__column] {
+    @media(min-width: $bpMedium) {
+      width: 50vw;
+    }
+  }
+
+
+/*
+ *  CONTENT BLOKKEN
+ */
+
+// STIJL VOOR ALLE BLOKKEN
+
+[class*=sport__block] {
+  padding: 40px;
+}
+
+// VARIANTEN
+
+  .sport__block--text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @media(min-width: $bpMedium) {
+      padding: 80px;
+      > * {
+        max-width: 410px;
+      }
+    }
+    @media(min-width: $bpVeryBig) {
+      > * {
+        max-width: 610px;
+      }
+    }
+  }
+
+  .sport__block--image {
+    height: 60vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .sport__block--quote {
+    position: relative;
+    min-height: 90vh;
+    p {
+      position: absolute;
+      margin: 0;
+      bottom: 40px;
+      left: 40px;
+      font-size: 32px;
+      color: #FFF;
+    }
+  }
+
+  .sport__block--black {
+    background: #000;
+    color: #FFF;
+  }
